@@ -4,6 +4,8 @@
 
 #include "SDL.h"
 
+#include "camera.h"
+
 class Renderer {
 public:
 	SDL_Renderer* sdl_renderer;
@@ -15,7 +17,7 @@ public:
 
 	auto presentScreen() -> void;
 
-	auto renderTexture(SDL_Texture* texture, int x, int y, float scale = 1.0f) -> void;
+	auto renderTexture(SDL_Texture* texture, const Camera& camera, int x, int y, float scale = 1.0f) -> void;
 
 	auto getWinSize() -> std::pair<int, int>;
 };

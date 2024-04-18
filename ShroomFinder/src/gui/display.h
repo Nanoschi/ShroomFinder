@@ -17,6 +17,12 @@ public:
 
 	auto drawFrame() -> void;
 
+	auto moveCamera(glm::vec2 delta) -> void;
+
+	auto zoomCamera(float delta) -> void;
+
+	auto zoomCameraTo(float zoom) -> void;
+
 private:
 	auto _loadData() -> void;
 };

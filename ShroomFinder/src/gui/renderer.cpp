@@ -32,11 +32,13 @@ auto Renderer::presentScreen() -> void {
 	SDL_RenderPresent(sdl_renderer);
 }
 
-auto Renderer::renderTexture(SDL_Texture* texture, int x, int y, float scale) -> void {
+auto Renderer::renderTexture(SDL_Texture* texture, const Camera& camera, int x, int y, float scale) -> void {
 	int tex_width = 0;
 	int tex_height = 0;
 	SDL_QueryTexture(texture, nullptr, nullptr, &tex_width, &tex_height);
-	SDL_Rect dest_rect = { x, y, tex_width * scale, tex_height * scale };
+	SDL_Rect dest_rect = { 
+		x - camera.pos.x, y - camera.pos.y,
+		tex_width * scale * camera.zoom, tex_height * scale * camera.zoom};
 
 	SDL_RenderCopy(sdl_renderer, texture, NULL, &dest_rect);
 }

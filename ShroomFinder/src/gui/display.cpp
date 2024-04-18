@@ -19,6 +19,18 @@ auto Display::_loadData() -> void {
 
 auto Display::drawFrame() -> void {
 	renderer.clearScreen(255, 20, 20);
-	renderer.renderTexture(map_texture, 10, 10, 0.6);
+	renderer.renderTexture(map_texture, camera, 10, 10, 0.6);
 	renderer.presentScreen();
+}
+
+auto Display::moveCamera(glm::vec2 delta) -> void {
+	camera.move(delta);
+}
+
+auto Display::zoomCamera(float zoom_delta) -> void {
+	camera.zoom += zoom_delta;
+}
+
+auto Display::zoomCameraTo(float zoom) -> void {
+	camera.zoom = zoom;
 }

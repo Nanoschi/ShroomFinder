@@ -7,6 +7,11 @@ private:
 
 	Display display;
 
+	glm::vec2 mouse_pos;
+	glm::vec2 delta_mouse_pos;
+	uint32_t mouse_buttons;
+	float scroll;
+
 public:
 	App();
 
@@ -16,4 +21,8 @@ public:
 
 private:
 	auto _pollInput() -> void;
+
+	auto _updateMousePos(int x, int y) -> void;
+
+	auto _tryMoveCamera() -> void;
 };
