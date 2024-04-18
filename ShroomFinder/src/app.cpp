@@ -9,10 +9,8 @@ App::App() {
 
 auto App::run() -> void {
 	while (running) {
-		_pollInput();
-		display.clearScreen();
+		_pollInput();	
 		display.drawFrame();
-		display.presentFrame();
 	}
 }
 

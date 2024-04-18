@@ -9,3 +9,7 @@ Camera::Camera(glm::vec2 pos, float zoom) {
 Camera::Camera() {
 	Camera({ 0, 0 }, 1);
 }
+
+auto Camera::move(glm::vec2 delta) -> void {
+	pos += delta;
+}

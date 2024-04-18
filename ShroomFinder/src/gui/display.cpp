@@ -7,45 +7,18 @@
 #include "../errors/error.h"
 #include "gui_config.h"
 
-Display::Display() {
-	renderer = nullptr;
-	window = nullptr;
-	_init();
-}
-
-auto Display::_init() -> void {
-	SDL_Init(SDL_INIT_EVERYTHING);
-
-	window = SDL_CreateWindow(
-		WinTitle.data(),
-		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		DefaultWinWidth, DefaultWinHeight,
-		SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
-
-	if (window == nullptr) {
-		reportError(ErrorType::WindowError);
-	}
-
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-
-	if (renderer == nullptr) {
-		reportError(ErrorType::RendererError);
-	}
+Display::Display() : renderer{ DefaultWinWidth, DefaultWinHeight, WinTitle } {
+	_loadData();
 }
 
 auto Display::_loadData() -> void {
-	map_texture = IMG_LoadTexture(renderer, (const char*)paths::MapPath.c_str());
-}
+	map_texture = IMG_LoadTexture(renderer.sdl_renderer, paths::MapPath.c_str());
+	printf(SDL_GetError());
 
-auto Display::clearScreen() -> void {
-	SDL_SetRenderDrawColor(renderer, ClearColor.r, ClearColor.g, ClearColor.b, ClearColor.a);
-	SDL_RenderClear(renderer);
-}
-
-auto Display::presentFrame() -> void {
-	SDL_RenderPresent(renderer);
 }
 
 auto Display::drawFrame() -> void {
-
+	renderer.clearScreen(255, 20, 20);
+	renderer.renderTexture(map_texture, 10, 10, 0.6);
+	renderer.presentScreen();
 }

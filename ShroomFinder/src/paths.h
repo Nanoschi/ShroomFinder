@@ -2,5 +2,5 @@
 #include <filesystem>
 
 namespace paths {
-	const std::filesystem::path MapPath = "resources/germany.png";
+	const std::string MapPath = "resources/germany.png";
 }

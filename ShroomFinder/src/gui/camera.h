@@ -8,4 +8,6 @@ struct Camera {
 	Camera();
 
 	Camera(glm::vec2 pos, float zoom);
+
+	auto move(glm::vec2 delta) -> void;
 };

@@ -3,11 +3,11 @@
 #include "SDL.h"
 
 #include "camera.h"
+#include "renderer.h"
 
 class Display {
 public:
-	SDL_Window* window;
-	SDL_Renderer* renderer;
+	Renderer renderer;
 
 	Camera camera;
 
@@ -15,14 +15,8 @@ public:
 
 	Display();
 
-	auto clearScreen() -> void;
-
-	auto presentFrame() -> void;
-
 	auto drawFrame() -> void;
 
 private:
-	auto _init() -> void;
-
 	auto _loadData() -> void;
 };
