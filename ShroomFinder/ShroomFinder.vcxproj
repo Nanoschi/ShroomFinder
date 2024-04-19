@@ -111,7 +111,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SDL2-2.30.1\lib\x64;$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64;$(SolutionDir)Dependencies\SDL2_image-2.8.2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32s.lib;SDL2_image.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32s.lib;SDL2_image.lib;opengl32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,18 +131,20 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SDL2-2.30.1\lib\x64;$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\x64;$(SolutionDir)Dependencies\SDL2_image-2.8.2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32s.lib;SDL2_image.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32s.lib;SDL2_image.lib;opengl32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\app.cpp" />
     <ClCompile Include="src\data\load_file.cpp" />
-    <ClCompile Include="src\errors\error.cpp" />
+    <ClCompile Include="src\error.cpp" />
     <ClCompile Include="src\gui\camera.cpp" />
     <ClCompile Include="src\gui\display.cpp" />
     <ClCompile Include="src\gui\renderer.cpp" />
     <ClCompile Include="src\input_reader.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\opengl\debug.cpp" />
+    <ClCompile Include="src\opengl\vertices.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\app.h" />
@@ -153,6 +155,8 @@
     <ClInclude Include="include\gui\gui_config.h" />
     <ClInclude Include="include\gui\renderer.h" />
     <ClInclude Include="include\input_reader.h" />
+    <ClInclude Include="include\opengl\debug.h" />
+    <ClInclude Include="include\opengl\vertices.h" />
     <ClInclude Include="include\paths.h" />
   </ItemGroup>
   <ItemGroup>

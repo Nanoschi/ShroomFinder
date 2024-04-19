@@ -10,6 +10,7 @@ class Renderer {
 public:
 	SDL_Renderer* sdl_renderer;
 	SDL_Window* sdl_window;
+	SDL_GLContext gl_context;
 
 	Renderer(int win_width, int win_height, const std::string& title);
 

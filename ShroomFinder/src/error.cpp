@@ -10,6 +10,8 @@ namespace {
 			return "Failed to inizielize window";
 		case ErrorType::RendererError:
 			return "Failed to inizialize renderer";
+		case ErrorType::GlewError:
+			return "Failed to inizialize glew";
 		default:
 			return "Unknown error: " + std::to_string((int)type);
 		}

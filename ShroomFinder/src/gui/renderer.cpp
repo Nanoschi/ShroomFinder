@@ -1,6 +1,7 @@
 #include "SDL_image.h"
 #include "gui/renderer.h"
 #include "error.h"
+#include "opengl/debug.h"
 
 Renderer::Renderer(int win_width, int win_height, const std::string& title) {
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -21,8 +22,14 @@ Renderer::Renderer(int win_width, int win_height, const std::string& title) {
 	if (sdl_renderer == nullptr) {
 		reportError(ErrorType::RendererError);
 	}
+	gl_context = SDL_GL_CreateContext(sdl_window);
 
-	SDL_GL_CreateContext(sdl_window);
+	GLenum glew_error = glewInit();
+	if (glew_error != GLEW_OK) {
+		printf((const char*)glewGetErrorString(glew_error));
+	}
+
+	glDebugMessageCallback(openglDebugCallback, nullptr);
 }
 
 auto Renderer::clearScreen(uint8_t r, uint8_t g, uint8_t b) -> void {
