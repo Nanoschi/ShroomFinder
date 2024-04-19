@@ -37,8 +37,10 @@ auto Renderer::renderTexture(SDL_Texture* texture, const Camera& camera, int x, 
 	int tex_height = 0;
 	SDL_QueryTexture(texture, nullptr, nullptr, &tex_width, &tex_height);
 	SDL_Rect dest_rect = { 
-		x + camera.pos.x, y + camera.pos.y,
-		tex_width * scale, tex_height * scale};
+		x + camera.pos.x,
+		y + camera.pos.y,
+		tex_width * scale * camera.zoom,
+		tex_height * scale * camera.zoom };
 
 	SDL_RenderCopy(sdl_renderer, texture, NULL, &dest_rect);
 }

@@ -7,7 +7,9 @@
 #include "../errors/error.h"
 #include "gui_config.h"
 
-Display::Display() : renderer{ DefaultWinWidth, DefaultWinHeight, WinTitle } {
+Display::Display() : 
+	renderer{ DefaultWinWidth, DefaultWinHeight, WinTitle },
+	camera{ {0, 0}, 1 } {
 	_loadData();
 }
 
@@ -27,10 +29,13 @@ auto Display::moveCamera(glm::vec2 delta) -> void {
 	camera.move(delta);
 }
 
-auto Display::zoomCamera(float zoom_delta) -> void {
-	camera.zoom += zoom_delta;
+auto Display::zoomIn() -> void {
+	camera.zoom *= ZoomSpeed;
+	camera.pos *= ZoomSpeed;
 }
 
-auto Display::zoomCameraTo(float zoom) -> void {
-	camera.zoom = zoom;
+auto Display::zoomOut() -> void {
+	camera.zoom /= ZoomSpeed;
+	camera.pos /= ZoomSpeed;
+
 }

@@ -11,6 +11,7 @@ InputReader::InputReader() :
 
 auto InputReader::pollInput() -> void {
 	delta_mouse = { 0, 0 };
+	scroll = 0;
 	SDL_Event event;
 
 	while (SDL_PollEvent(&event)) {
@@ -42,6 +43,9 @@ auto InputReader::pollInput() -> void {
 		else if (event.type == SDL_MOUSEBUTTONUP) {
 			Uint8 button = event.button.button;
 			_updateMouseButton(button, false);
+		}
+		else if (event.type == SDL_MOUSEWHEEL) {
+			scroll = event.wheel.preciseY;
 		}
 	}
 }

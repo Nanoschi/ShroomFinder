@@ -19,9 +19,9 @@ public:
 
 	auto moveCamera(glm::vec2 delta) -> void;
 
-	auto zoomCamera(float delta) -> void;
+	auto zoomIn() -> void;
 
-	auto zoomCameraTo(float zoom) -> void;
+	auto zoomOut() -> void;
 
 private:
 	auto _loadData() -> void;

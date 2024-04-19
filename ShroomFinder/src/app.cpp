@@ -21,7 +21,14 @@ auto App::close() -> void {
 }
 
 auto App::_applyInput() -> void {
+		printf("%f\n", display.camera.zoom);
 	if (input_reader.getMouseMiddle()) {
 		display.camera.move(input_reader.getDeltaMousePos());
+	}
+	if (input_reader.getScrollAmount() < 0) {
+		display.zoomOut();
+	}
+	else if (input_reader.getScrollAmount() > 0) {
+		display.zoomIn();
 	}
 }

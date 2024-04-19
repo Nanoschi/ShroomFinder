@@ -8,3 +8,5 @@ constexpr int DefaultWinHeight = 800;
 constexpr SDL_Color ClearColor{ 220, 220, 220, SDL_ALPHA_OPAQUE };
 
 const std::string WinTitle = "Shroom Finder";
+
+constexpr float ZoomSpeed = 1.1f;
