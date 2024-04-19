@@ -33,27 +33,39 @@
     <ClCompile Include="src\gui\renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\input_reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\data\load_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\app.h">
+    <ClInclude Include="include\app.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui\display.h">
+    <ClInclude Include="include\gui\display.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui\gui_config.h">
+    <ClInclude Include="include\gui\gui_config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\errors\error.h">
+    <ClInclude Include="include\error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui\camera.h">
+    <ClInclude Include="include\gui\camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\paths.h">
+    <ClInclude Include="include\paths.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui\renderer.h">
+    <ClInclude Include="include\gui\renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\input_reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\load_file.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

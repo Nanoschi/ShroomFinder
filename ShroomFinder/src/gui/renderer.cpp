@@ -1,6 +1,6 @@
 #include "SDL_image.h"
-#include "renderer.h"
-#include "../errors/error.h"
+#include "gui/renderer.h"
+#include "error.h"
 
 Renderer::Renderer(int win_width, int win_height, const std::string& title) {
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -21,6 +21,8 @@ Renderer::Renderer(int win_width, int win_height, const std::string& title) {
 	if (sdl_renderer == nullptr) {
 		reportError(ErrorType::RendererError);
 	}
+
+	SDL_GL_CreateContext(sdl_window);
 }
 
 auto Renderer::clearScreen(uint8_t r, uint8_t g, uint8_t b) -> void {

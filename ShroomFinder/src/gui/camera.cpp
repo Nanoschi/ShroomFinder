@@ -1,5 +1,5 @@
 #pragma once
-#include "camera.h"
+#include "gui/camera.h"
 
 Camera::Camera(glm::vec2 pos, float zoom) {
 	this->pos = pos;

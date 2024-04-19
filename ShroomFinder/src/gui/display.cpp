@@ -1,11 +1,11 @@
 #pragma once
 #include "SDL_image.h"
 
-#include "../paths.h"
-#include "display.h"
+#include "paths.h"
+#include "gui/display.h"
 
-#include "../errors/error.h"
-#include "gui_config.h"
+#include "error.h"
+#include "gui/gui_config.h"
 
 Display::Display() : 
 	renderer{ DefaultWinWidth, DefaultWinHeight, WinTitle },
