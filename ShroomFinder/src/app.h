@@ -1,17 +1,13 @@
 #pragma once
 #include "gui/display.h"
+#include "input_reader.h"
 
 class App {
 private:
 	bool running;
 
 	Display display;
-
-	glm::vec2 mouse_pos;
-	glm::vec2 delta_mouse_pos;
-	uint32_t mouse_buttons;
-	float scroll;
-
+	InputReader input_reader;
 public:
 	App();
 
@@ -20,9 +16,5 @@ public:
 	auto close() -> void;
 
 private:
-	auto _pollInput() -> void;
-
-	auto _updateMousePos(int x, int y) -> void;
-
-	auto _tryMoveCamera() -> void;
+	auto _applyInput() -> void;
 };

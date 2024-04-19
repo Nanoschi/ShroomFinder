@@ -140,6 +140,7 @@
     <ClCompile Include="src\gui\camera.cpp" />
     <ClCompile Include="src\gui\display.cpp" />
     <ClCompile Include="src\gui\renderer.cpp" />
+    <ClCompile Include="src\input_reader.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="src\gui\display.h" />
     <ClInclude Include="src\gui\gui_config.h" />
     <ClInclude Include="src\gui\renderer.h" />
+    <ClInclude Include="src\input_reader.h" />
     <ClInclude Include="src\paths.h" />
   </ItemGroup>
   <ItemGroup>
