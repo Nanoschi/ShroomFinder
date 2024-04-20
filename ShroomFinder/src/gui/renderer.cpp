@@ -12,15 +12,15 @@ Renderer::Renderer(int win_width, int win_height, const std::string& title) {
 		title.c_str(),
 		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		win_width, win_height,
-		SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+		SDL_WINDOW_OPENGL);
 
 	if (sdl_window == nullptr) {
 		reportError(ErrorType::WindowError);
 	}
 
-	sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);
+	//sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);
 
-	if (sdl_renderer == nullptr) {
+	if (false) {
 		reportError(ErrorType::RendererError);
 	}
 
@@ -33,6 +33,7 @@ Renderer::Renderer(int win_width, int win_height, const std::string& title) {
 		fprintf(stderr, (const char*)glewGetErrorString(glew_error));
 	}
 
+	glEnable(GL_DEBUG_OUTPUT);
 	glDebugMessageCallback(openglDebugCallback, nullptr);
 }
 
