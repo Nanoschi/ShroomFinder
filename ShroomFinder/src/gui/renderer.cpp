@@ -4,6 +4,7 @@
 #include "opengl/debug.h"
 
 Renderer::Renderer(int win_width, int win_height, const std::string& title) {
+	// SDL Init
 	SDL_Init(SDL_INIT_EVERYTHING);
 	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
 
@@ -22,11 +23,14 @@ Renderer::Renderer(int win_width, int win_height, const std::string& title) {
 	if (sdl_renderer == nullptr) {
 		reportError(ErrorType::RendererError);
 	}
+
+	// OpenGL Init
 	gl_context = SDL_GL_CreateContext(sdl_window);
 
+	// Glew Init
 	GLenum glew_error = glewInit();
 	if (glew_error != GLEW_OK) {
-		printf((const char*)glewGetErrorString(glew_error));
+		fprintf(stderr, (const char*)glewGetErrorString(glew_error));
 	}
 
 	glDebugMessageCallback(openglDebugCallback, nullptr);

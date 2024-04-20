@@ -21,7 +21,6 @@ auto App::close() -> void {
 }
 
 auto App::_applyInput() -> void {
-		printf("%f\n", display.camera.zoom);
 	if (input_reader.getMouseMiddle()) {
 		display.camera.move(input_reader.getDeltaMousePos());
 	}
