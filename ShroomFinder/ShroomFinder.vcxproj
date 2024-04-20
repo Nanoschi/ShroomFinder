@@ -144,6 +144,9 @@
     <ClCompile Include="src\input_reader.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\opengl\debug.cpp" />
+    <ClCompile Include="src\opengl\index_buffer.cpp" />
+    <ClCompile Include="src\opengl\shader_program.cpp" />
+    <ClCompile Include="src\opengl\vertex_buffer.cpp" />
     <ClCompile Include="src\opengl\vertices.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,11 +159,18 @@
     <ClInclude Include="include\gui\renderer.h" />
     <ClInclude Include="include\input_reader.h" />
     <ClInclude Include="include\opengl\debug.h" />
+    <ClInclude Include="include\opengl\index_buffer.h" />
+    <ClInclude Include="include\opengl\shader_program.h" />
+    <ClInclude Include="include\opengl\vertex_buffer.h" />
     <ClInclude Include="include\opengl\vertices.h" />
     <ClInclude Include="include\paths.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\shader.frag" />
+    <None Include="resources\shaders\shader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

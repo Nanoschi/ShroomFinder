@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "load_file.h"
 
 auto loadTextFile(const std::string& path) -> std::string {
@@ -9,12 +10,13 @@ auto loadTextFile(const std::string& path) -> std::string {
 		return "";
 	}
 	
-	std::string content;
-	char c;
-	while (input >> c) {
-		content.push_back(c);
-	}
+	input.seekg(0, input.end);
+	std::streampos size = input.tellg();
+	input.seekg(0, input.beg);
 
-	input.close();
-	return content;
+	std::string file_content;
+	file_content.resize(size);
+	
+	input.read((char*)file_content.c_str(), size);
+	return file_content;
 }
