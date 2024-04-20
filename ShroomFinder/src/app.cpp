@@ -17,6 +17,7 @@ auto App::run() -> void {
 	getTestTriangleVertices(&vertices);
 
 	VertexBuffer vbo;
+	vbo.createBuffer();
 	vbo.bind();
 	vbo.loadData(sizeof(vertices), (char*)&vertices);
 
@@ -30,10 +31,7 @@ auto App::run() -> void {
 		input_reader.pollInput();
 		_applyInput();
 		//display.drawFrame();
-		//display.renderer.clearScreen(255, 0, 0);
-		glClearColor(1.0, 0.2, 0.0, 1.0);
-		glClear(GL_COLOR_BUFFER_BIT);
-		
+		display.renderer.clearScreen(0.9, 0.6, 0.8);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		//display.renderer.presentScreen();
 		SDL_GL_SwapWindow(display.renderer.sdl_window);

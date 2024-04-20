@@ -10,6 +10,8 @@ public:
 
 	~VertexBuffer();
 
+	auto createBuffer() -> void;
+
 	auto bind() -> void;
 
 	auto unbind() -> void;

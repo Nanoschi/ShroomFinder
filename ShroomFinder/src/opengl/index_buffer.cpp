@@ -2,10 +2,14 @@
 #include "opengl/index_buffer.h"
 
 IndexBuffer::IndexBuffer() {
-	glGenBuffers(1, &buffer_id);
+	buffer_id = 0;
 }
 IndexBuffer::~IndexBuffer() {
 	//destroy();
+}
+
+auto IndexBuffer::createBuffer() -> void {
+	glGenBuffers(1, &buffer_id);
 }
 
 auto IndexBuffer::bind() -> void {

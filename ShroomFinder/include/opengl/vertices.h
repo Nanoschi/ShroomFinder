@@ -2,6 +2,10 @@
 #include <array>
 #include "vec2.hpp"
 
+struct TextureVertex {
+	glm::vec2 position;
+};
+
 auto getTestTriangleVertices(std::array<glm::vec2, 3>* out_vertices) -> void;
 
 auto getCircleVertices(std::array<glm::vec2, 3>* out_vertices) -> void;

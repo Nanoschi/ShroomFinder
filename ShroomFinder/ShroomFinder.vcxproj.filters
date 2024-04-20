@@ -54,6 +54,9 @@
     <ClCompile Include="src\opengl\shader_program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\opengl\texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\app.h">
@@ -98,6 +101,9 @@
     <ClInclude Include="include\opengl\shader_program.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\opengl\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\germany.png">
@@ -107,5 +113,7 @@
   <ItemGroup>
     <None Include="resources\shaders\shader.vert" />
     <None Include="resources\shaders\shader.frag" />
+    <None Include="resources\shaders\texture_shader\texture.vert" />
+    <None Include="resources\shaders\texture_shader\texture.frag" />
   </ItemGroup>
 </Project>

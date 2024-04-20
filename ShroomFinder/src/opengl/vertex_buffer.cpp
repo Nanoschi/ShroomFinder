@@ -2,11 +2,15 @@
 #include "opengl/vertex_buffer.h"
 
 VertexBuffer::VertexBuffer() {
-	glGenBuffers(1, &buffer_id);
+	buffer_id = 0;
 }
 
 VertexBuffer::~VertexBuffer() {
 	//destroy();
+}
+
+auto VertexBuffer::createBuffer() -> void {
+	glGenBuffers(1, &buffer_id);
 }
 
 auto VertexBuffer::bind() -> void {
