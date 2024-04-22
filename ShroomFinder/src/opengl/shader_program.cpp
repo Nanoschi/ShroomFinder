@@ -3,6 +3,10 @@
 #include "load_file.h"
 
 ShaderProgram::ShaderProgram() {
+	program_id = 0;
+}
+
+auto ShaderProgram::createProgram() -> void {
 	program_id = glCreateProgram();
 }
 
@@ -16,6 +20,10 @@ auto ShaderProgram::unuse() -> void {
 
 auto ShaderProgram::destroy() -> void {
 	glDeleteProgram(program_id);
+}
+
+auto ShaderProgram::getProgramId() -> GLuint {
+	return program_id;
 }
 
 auto ShaderProgram::loadShadersFromFile(const std::string& vertex_path, const std::string& fragment_path) -> void {

@@ -16,7 +16,7 @@ public:
 
 	auto destroy() -> void;
 
-	auto loadDataFromBuffer(char* data, int width, int height) -> void;
+	auto loadDataFromMemory(char* data, int width, int height) -> void;
 
 private:
 	auto _configureTexture() -> void;

@@ -24,7 +24,7 @@ auto Texture::destroy() -> void {
 	glDeleteTextures(1, &texture_id);
 }
 
-auto Texture::loadDataFromBuffer(char* data, int width, int height) -> void {
+auto Texture::loadDataFromMemory(char* data, int width, int height) -> void {
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 	glGenerateMipmap(GL_TEXTURE_2D);
 }

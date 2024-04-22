@@ -11,4 +11,4 @@ auto getTestTriangleVertices(std::array<glm::vec2, 3>* out_vertices) -> void;
 
 auto getCircleVertices(std::array<glm::vec2, 3>* out_vertices) -> void;
 
-auto getTextureQuadVertices(std::array<TextureVertex, 3>* out_vertices) -> void;
+auto getTextureQuadVertices(std::array<TextureVertex, 6>* out_vertices) -> void;

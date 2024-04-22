@@ -13,15 +13,9 @@ Display::Display() :
 	_loadData();
 }
 
-auto Display::_loadData() -> void {
-	map_texture = IMG_LoadTexture(renderer.sdl_renderer, paths::MapPath.c_str());
-	printf(SDL_GetError());
-
-}
-
 auto Display::drawFrame() -> void {
-	renderer.clearScreen(255, 20, 20);
-	renderer.renderTexture(map_texture, camera, 10, 10, 0.6);
+	renderer.clearScreen(0.4f, 0.1f, 0.2f);
+	
 	renderer.presentScreen();
 }
 
@@ -37,5 +31,10 @@ auto Display::zoomIn() -> void {
 auto Display::zoomOut() -> void {
 	camera.zoom /= ZoomSpeed;
 	camera.pos /= ZoomSpeed;
+
+}
+
+auto Display::_loadData() -> void {
+	
 
 }

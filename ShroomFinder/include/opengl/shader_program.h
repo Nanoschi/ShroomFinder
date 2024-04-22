@@ -9,11 +9,15 @@ class ShaderProgram {
 public:
 	ShaderProgram();
 
+	auto createProgram() -> void;
+
 	auto use() -> void;
 
 	auto unuse() -> void;
 
 	auto destroy() -> void;
+
+	auto getProgramId() -> GLuint;
 
 	auto loadShadersFromFile(const std::string& vertex_path, const std::string& fragment_path) -> void;
 
