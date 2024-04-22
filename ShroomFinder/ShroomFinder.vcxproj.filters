@@ -60,6 +60,9 @@
     <ClCompile Include="src\opengl\vertex_array.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui\texture_renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\app.h">
@@ -110,6 +113,15 @@
     <ClInclude Include="include\opengl\vertex_array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gui\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gui\map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gui\texture_renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\germany.png">
@@ -117,8 +129,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\shaders\shader.vert" />
-    <None Include="resources\shaders\shader.frag" />
     <None Include="resources\shaders\texture_shader\texture.vert" />
     <None Include="resources\shaders\texture_shader\texture.frag" />
   </ItemGroup>

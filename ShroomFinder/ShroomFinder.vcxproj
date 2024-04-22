@@ -147,12 +147,16 @@
     <ClCompile Include="src\opengl\index_buffer.cpp" />
     <ClCompile Include="src\opengl\shader_program.cpp" />
     <ClCompile Include="src\opengl\texture.cpp" />
+    <ClCompile Include="src\gui\texture_renderer.cpp" />
     <ClCompile Include="src\opengl\vertex_array.cpp" />
     <ClCompile Include="src\opengl\vertex_buffer.cpp" />
     <ClCompile Include="src\opengl\vertices.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\app.h" />
+    <ClInclude Include="include\gui\image.h" />
+    <ClInclude Include="include\gui\map.h" />
+    <ClInclude Include="include\gui\texture_renderer.h" />
     <ClInclude Include="include\load_file.h" />
     <ClInclude Include="include\error.h" />
     <ClInclude Include="include\gui\camera.h" />
@@ -173,8 +177,6 @@
     <Image Include="resources\germany.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\shaders\shader.frag" />
-    <None Include="resources\shaders\shader.vert" />
     <None Include="resources\shaders\texture_shader\texture.frag" />
     <None Include="resources\shaders\texture_shader\texture.vert" />
   </ItemGroup>

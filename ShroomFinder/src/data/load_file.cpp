@@ -2,6 +2,8 @@
 #include <string>
 #include "load_file.h"
 
+#include "stb_image.h"
+
 auto loadTextFile(const std::string& path) -> std::string {
 	std::ifstream input(path, std::ios::binary);
 
@@ -19,4 +21,16 @@ auto loadTextFile(const std::string& path) -> std::string {
 	
 	input.read((char*)file_content.c_str(), size);
 	return file_content;
+}
+
+auto loadTexture(const std::string path) -> Texture {
+	const char* c_str = path.c_str();
+	int width, height, channels;
+	stbi_uc* data = stbi_load(c_str, &width, &height, &channels, 0);
+
+	Texture texture;
+	texture.createTexture();
+	texture.loadDataFromMemory((char*)data, width, height);
+	stbi_image_free(data);
+	return texture;
 }

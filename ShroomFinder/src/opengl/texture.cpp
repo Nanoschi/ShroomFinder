@@ -22,6 +22,7 @@ auto Texture::unbind() -> void {
 
 auto Texture::destroy() -> void {
 	glDeleteTextures(1, &texture_id);
+	texture_id = 0;
 }
 
 auto Texture::loadDataFromMemory(char* data, int width, int height) -> void {
