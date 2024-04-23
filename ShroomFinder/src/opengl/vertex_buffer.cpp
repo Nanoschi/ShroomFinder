@@ -23,6 +23,7 @@ auto VertexBuffer::unbind() -> void {
 
 auto VertexBuffer::destroy() -> void {
 	glDeleteBuffers(1, &buffer_id);
+	buffer_id = 0;
 }
 
 auto VertexBuffer::getBufferId() -> GLuint {

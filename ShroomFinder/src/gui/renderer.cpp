@@ -69,6 +69,7 @@ auto Renderer::_initGraphicsSystem(int win_width, int win_height, const std::str
 		fprintf(stderr, (const char*)glewGetErrorString(glew_error));
 	}
 
+	SDL_GL_SetSwapInterval(0);
 	glEnable(GL_DEBUG_OUTPUT);
 	glDebugMessageCallback(openglDebugCallback, nullptr);
 }

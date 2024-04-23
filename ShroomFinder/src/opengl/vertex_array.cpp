@@ -22,6 +22,7 @@ auto VertexArray::unbind() -> void {
 
 auto VertexArray::destroy() -> void {
 	glDeleteVertexArrays(1, &vao_id);
+	vao_id = 0;
 }
 
 auto VertexArray::addAttribPointer(GLuint index, GLint element_count, GLenum type, GLboolean normalize, GLsizei stride, GLsizei offset) -> void {

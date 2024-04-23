@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <mutex>
+
 #include "load_file.h"
 
 #include "stb_image.h"
@@ -23,14 +25,18 @@ auto loadTextFile(const std::string& path) -> std::string {
 	return file_content;
 }
 
-auto loadTexture(const std::string path) -> Texture {
+std::mutex texture_load_mutex;
+auto loadTexture(const std::string& path) -> Texture {
 	const char* c_str = path.c_str();
 	int width, height, channels;
 	stbi_uc* data = stbi_load(c_str, &width, &height, &channels, 0);
 
 	Texture texture;
+	texture_load_mutex.lock();
 	texture.createTexture();
-	texture.loadDataFromMemory((char*)data, width, height);
+	texture.bind();
+	texture.loadTextureFromMemory((char*)data, width, height);
+	texture_load_mutex.unlock();
 	stbi_image_free(data);
 	return texture;
 }

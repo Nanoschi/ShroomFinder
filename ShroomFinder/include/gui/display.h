@@ -4,14 +4,15 @@
 
 #include "camera.h"
 #include "renderer.h"
+#include "gui/map.h"
 
 class Display {
 public:
 	Renderer renderer;
 
 	Camera camera;
-
-	SDL_Texture* map_texture;
+	
+	GuiMap map;
 
 	Display();
 

@@ -25,9 +25,22 @@ auto Texture::destroy() -> void {
 	texture_id = 0;
 }
 
-auto Texture::loadDataFromMemory(char* data, int width, int height) -> void {
+auto Texture::hasData() -> bool {
+	return texture_id != 0;
+}
+
+auto Texture::getSize() -> glm::ivec2 {
+	return { width, height };
+}
+
+auto Texture::getAspect() -> float {
+	return (float)width / height;
+}
+
+auto Texture::loadTextureFromMemory(char* data, int width, int height) -> void {
+	this->width = width;
+	this->height = height;
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-	glGenerateMipmap(GL_TEXTURE_2D);
 }
 
 auto Texture::_configureTexture() -> void {

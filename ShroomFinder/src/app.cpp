@@ -1,5 +1,7 @@
 #pragma once
-#include <algorithm>
+#include <chrono>
+#include <iostream>
+
 #include "SDL.h"
 
 #include "app.h"
@@ -17,10 +19,29 @@ App::App() {
 }
 
 auto App::run() -> void {
+	using namespace std::chrono_literals;
+
+	auto start_time = std::chrono::high_resolution_clock::now();
+	int frame_count = 0;
 	while (!input_reader.hasQuit()) {
+
 		input_reader.pollInput();
 		_applyInput();
 		display.drawFrame();
+		frame_count++;
+
+		auto current_time = std::chrono::high_resolution_clock::now();
+		auto elapsed_time = current_time - start_time;
+		auto elapsed_time_ms = std::chrono::duration_cast<std::chrono::microseconds>(elapsed_time);
+		
+		if (elapsed_time_ms >= 1000ms) {
+			int elapsed_micro_int = elapsed_time_ms.count();
+			float elapsed_milli_float = static_cast<float>(elapsed_micro_int) / 1000;
+			float fps = frame_count;
+			std::cout << "FPS: " << fps << " | Frame Time: " << elapsed_milli_float / frame_count << "ms\n";
+			frame_count = 0;
+			start_time = std::chrono::high_resolution_clock::now();
+		}
 	}
 }
 

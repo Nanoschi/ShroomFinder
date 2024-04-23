@@ -16,6 +16,8 @@ Display::Display() :
 auto Display::drawFrame() -> void {
 	renderer.clearScreen(0.4f, 0.1f, 0.2f);
 	
+	map.render(renderer, camera);
+
 	renderer.presentScreen();
 }
 
@@ -25,16 +27,12 @@ auto Display::moveCamera(glm::vec2 delta) -> void {
 
 auto Display::zoomIn() -> void {
 	camera.zoom *= ZoomSpeed;
-	camera.pos *= ZoomSpeed;
 }
 
 auto Display::zoomOut() -> void {
 	camera.zoom /= ZoomSpeed;
-	camera.pos /= ZoomSpeed;
-
 }
 
 auto Display::_loadData() -> void {
-	
-
+	map.loadData();
 }

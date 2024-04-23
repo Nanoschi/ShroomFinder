@@ -5,4 +5,4 @@
 
 auto loadTextFile(const std::string& path) -> std::string;
 
-auto loadTexture(const std::string path) -> Texture;
+auto loadTexture(const std::string& path) -> Texture;
