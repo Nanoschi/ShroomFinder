@@ -5,7 +5,6 @@
 #include "SDL.h"
 #include "vec2.hpp"
 
-#include "camera.h"
 #include "gui/texture_renderer.h"
 
 class Renderer {
@@ -21,8 +20,6 @@ public:
 	auto clearScreen(GLclampf r, GLclampf g, GLclampf b) -> void;
 
 	auto presentScreen() -> void;
-
-	auto renderTexture(SDL_Texture* texture, const Camera& camera, int x, int y, float scale = 1.0f) -> void;
 
 	auto getWinSize() -> glm::ivec2;
 

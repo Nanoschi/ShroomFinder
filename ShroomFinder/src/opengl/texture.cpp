@@ -40,7 +40,7 @@ auto Texture::getAspect() -> float {
 auto Texture::loadTextureFromMemory(char* data, int width, int height) -> void {
 	this->width = width;
 	this->height = height;
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_COMPRESSED_RGBA_BPTC_UNORM, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 }
 
 auto Texture::_configureTexture() -> void {

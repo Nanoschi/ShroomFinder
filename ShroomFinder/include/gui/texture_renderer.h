@@ -12,6 +12,7 @@ class TextureRenderer {
 
 	GLint texture_scale_uniform;
 	GLint texture_position_uniform;
+	GLint texture_zoom_uniform;
 
 public:
 	auto init() -> void;
@@ -24,6 +25,8 @@ public:
 
 	auto setTextureScale(float scale) -> void;
 
+	auto setTextureZoom(float zoom) -> void;
+
 	auto getVAO() -> VertexArray;
 
 	auto getVBO() -> VertexBuffer;
@@ -33,6 +36,8 @@ public:
 	auto getScaleUniform() -> GLint;
 
 	auto getPosUniform() -> GLint;
+
+	auto getZoomUniform() -> GLint;
 
 private:
 	auto _getUniformLocations() -> void;

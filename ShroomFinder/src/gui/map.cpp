@@ -16,17 +16,21 @@ auto GuiMap::loadData() -> void {
 	_loadLargeTiles(paths::LargeTileDir);
 }
 
-auto GuiMap::render(Renderer& renderer, const Camera& camera) -> void {
+auto GuiMap::render(Renderer& renderer, Camera& camera) -> void {
 	TextureRenderer& tex_renderer = renderer.texture_renderer;
 	tex_renderer.getShaderProgram().use();
 	
-	float texture_aspect = largeTileAt(0, 0).getAspect();
+	const float texture_aspect = largeTileAt(0, 0).getAspect();
+	glm::vec2 normal_cam_pos = camera.getNormalCamPos(renderer);
 
-	tex_renderer.setTexturePosition({ 0, 0 });
 	tex_renderer.setTextureScale({ texture_aspect, 1 });
+	tex_renderer.setTextureZoom(camera.zoom);
 
-	for (int x = 0; x < 1; x++) {
-		for (int y = 0; y < 1; y++) {
+	for (int x = 0; x < LargeMapTileXCount; x++) {
+		for (int y = 0; y < LargeMapTileYCount; y++) {
+			const glm::vec2 texture_offset = { x * texture_aspect * 2, -y * 2 };
+			tex_renderer.setTexturePosition(normal_cam_pos + texture_offset);
+
 			Texture& texture = largeTileAt(x, y);
 			texture.bind();
 			tex_renderer.renderBoundTexture();

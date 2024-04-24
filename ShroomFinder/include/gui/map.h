@@ -5,6 +5,7 @@
 #include "gui/image.h"
 #include "gui/renderer.h"
 #include "opengl/texture.h"
+#include "gui/camera.h"
 
 class GuiMap {
 	std::vector<Texture> large_map_textures;
@@ -14,7 +15,7 @@ public:
 
 	auto loadData() -> void;
 
-	auto render(Renderer& renderer, const Camera& camera) -> void;
+	auto render(Renderer& renderer, Camera& camera) -> void;
 
 	auto largeTileAt(int x, int y) -> Texture&;
 

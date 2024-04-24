@@ -24,6 +24,10 @@ auto TextureRenderer::setTextureScale(float scale) -> void {
 	glUniform2f(texture_scale_uniform, scale, scale);
 }
 
+auto TextureRenderer::setTextureZoom(float zoom) -> void {
+	glUniform2f(texture_zoom_uniform, zoom, zoom);
+}
+
 auto TextureRenderer::getVAO() -> VertexArray {
 	return texture_vao;
 }
@@ -44,9 +48,14 @@ auto TextureRenderer::getPosUniform() -> GLint {
 	return texture_position_uniform;
 }
 
+auto TextureRenderer::getZoomUniform() -> GLint {
+	return texture_zoom_uniform;
+}
+
 auto TextureRenderer::_getUniformLocations() -> void {
 	texture_scale_uniform = glGetUniformLocation(texture_program.getProgramId(), "u_scale");
 	texture_position_uniform = glGetUniformLocation(texture_program.getProgramId(), "u_position");
+	texture_zoom_uniform = glGetUniformLocation(texture_program.getProgramId(), "u_zoom");
 }
 
 auto TextureRenderer::_loadShaderProgram() -> void {
