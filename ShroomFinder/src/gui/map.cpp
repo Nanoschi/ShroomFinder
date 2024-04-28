@@ -24,7 +24,7 @@ auto GuiMap::render(Renderer& renderer, Camera& camera) -> void {
 	tex_renderer.getShaderProgram().use();
 
 	float texture_aspect = largeTileAt(0, 0).getAspect();
-	glm::vec2 normal_cam_pos = camera.getNormalCamPos(renderer);
+	glm::vec2 cam_pos = camera.pos;
 
 	glm::vec2 texture_scale{ texture_aspect, 1 };
 	tex_renderer.setTextureScale(texture_scale);
@@ -34,7 +34,7 @@ auto GuiMap::render(Renderer& renderer, Camera& camera) -> void {
 	for (int x = 0; x < LargeMapTileXCount; x++) {
 		for (int y = 0; y < LargeMapTileYCount; y++) {
 			const glm::vec2 texture_offset = { x * texture_aspect * 2, -y * 2 };
-			tex_renderer.setTexturePosition(normal_cam_pos + texture_offset);
+			tex_renderer.setTexturePosition(cam_pos + texture_offset);
 
 			Texture& texture = largeTileAt(x, y);
 			texture.bind();
