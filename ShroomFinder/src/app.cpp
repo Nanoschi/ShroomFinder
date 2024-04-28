@@ -54,9 +54,13 @@ auto App::_applyInput() -> void {
 		display.camera.move(input_reader.getDeltaMousePos());
 	}
 	if (input_reader.getScrollAmount() < 0) {
-		display.zoomOut();
+		glm::vec2 mouse_pos = input_reader.getMousePos();
+		glm::vec2 screen_mouse_pos = display.camera.RasterToScreen(mouse_pos, display.renderer.getWinSizeF());
+		display.zoomOut(screen_mouse_pos);
 	}
 	else if (input_reader.getScrollAmount() > 0) {
-		display.zoomIn();
+		glm::vec2 mouse_pos = input_reader.getMousePos();
+		glm::vec2 screen_mouse_pos = display.camera.RasterToScreen(mouse_pos, display.renderer.getWinSizeF());
+		display.zoomIn(screen_mouse_pos);
 	}
 }

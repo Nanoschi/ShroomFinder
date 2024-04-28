@@ -26,6 +26,11 @@ auto Renderer::getWinSize() -> glm::ivec2 {
 	return size;
 }
 
+auto Renderer::getWinSizeF() -> glm::vec2 {
+	glm::ivec2 win_size_i = getWinSize();
+	return { win_size_i.x, win_size_i.y };
+}
+
 auto Renderer::_initGraphicsSystem(int win_width, int win_height, const std::string& title) -> void {
 	// SDL Init
 	SDL_Init(SDL_INIT_EVERYTHING);

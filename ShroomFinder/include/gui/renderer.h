@@ -23,6 +23,8 @@ public:
 
 	auto getWinSize() -> glm::ivec2;
 
+	auto getWinSizeF() -> glm::vec2;
+
 private:
 	auto _initGraphicsSystem(int win_width, int win_height, const std::string& title) -> void;
 };

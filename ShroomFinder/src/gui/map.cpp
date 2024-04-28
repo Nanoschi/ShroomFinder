@@ -8,6 +8,9 @@
 #include "gui/image.h"
 #include "stb_image.h"
 
+#include "glm.hpp"
+#include "ext.hpp"
+
 GuiMap::GuiMap() {
 	large_map_textures.resize(LargeMapTileXCount * LargeMapTileYCount);
 }
@@ -19,12 +22,14 @@ auto GuiMap::loadData() -> void {
 auto GuiMap::render(Renderer& renderer, Camera& camera) -> void {
 	TextureRenderer& tex_renderer = renderer.texture_renderer;
 	tex_renderer.getShaderProgram().use();
-	
-	const float texture_aspect = largeTileAt(0, 0).getAspect();
+
+	float texture_aspect = largeTileAt(0, 0).getAspect();
 	glm::vec2 normal_cam_pos = camera.getNormalCamPos(renderer);
 
-	tex_renderer.setTextureScale({ texture_aspect, 1 });
+	glm::vec2 texture_scale{ texture_aspect, 1 };
+	tex_renderer.setTextureScale(texture_scale);
 	tex_renderer.setTextureZoom(camera.zoom);
+
 
 	for (int x = 0; x < LargeMapTileXCount; x++) {
 		for (int y = 0; y < LargeMapTileYCount; y++) {

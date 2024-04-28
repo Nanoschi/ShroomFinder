@@ -25,12 +25,12 @@ auto Display::moveCamera(glm::vec2 delta) -> void {
 	camera.move(delta);
 }
 
-auto Display::zoomIn() -> void {
-	camera.zoom *= ZoomSpeed;
+auto Display::zoomIn(glm::vec2 target) -> void {
+	camera.zoomTowards(target, ZoomSpeed);
 }
 
-auto Display::zoomOut() -> void {
-	camera.zoom /= ZoomSpeed;
+auto Display::zoomOut(glm::vec2 target) -> void {
+	camera.zoomTowards(target, 1 / ZoomSpeed);
 }
 
 auto Display::_loadData() -> void {
