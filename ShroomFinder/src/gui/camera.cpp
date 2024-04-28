@@ -44,11 +44,5 @@ auto Camera::ScreenToRaster(glm::vec2 screen_pos, glm::vec2 win_size) -> glm::ve
 }
 
 auto Camera::zoomTowards(glm::vec2 screen_target, float amount) -> void {
-	/*const glm::vec2 world_target_current = ScreenToWorld(screen_target);
-	zoom *= amount;
-	const glm::vec2 world_target_after = ScreenToWorld(screen_target);
-	const glm::vec2 world_delta = world_target_after - world_target_current;
-	const glm::vec2 screen_delta = world_delta / (zoom / amount);
-	pos += screen_delta;*/
 	zoom *= amount;
 }

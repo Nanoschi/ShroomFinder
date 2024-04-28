@@ -9,6 +9,7 @@
 
 class GuiMap {
 	std::vector<Texture> large_map_textures;
+	glm::vec2 map_pos;
 
 public:
 	GuiMap();
@@ -20,6 +21,10 @@ public:
 	auto largeTileAt(int x, int y) -> Texture&;
 
 	auto smallTileAt(int x, int y) -> Texture&;
+
+	auto getMapWidth() -> float;
+
+	auto getMapHeight() -> float;
 
 private:
 	auto _loadLargeTiles(const std::string& directory) -> void;

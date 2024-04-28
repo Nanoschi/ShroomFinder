@@ -17,6 +17,9 @@ GuiMap::GuiMap() {
 
 auto GuiMap::loadData() -> void {
 	_loadLargeTiles(paths::LargeTileDir);
+	float half_tile_width = largeTileAt(0, 0).getAspect();
+	float half_tile_height = 1;
+	map_pos = { half_tile_width, -half_tile_height };
 }
 
 auto GuiMap::render(Renderer& renderer, Camera& camera) -> void {
@@ -24,7 +27,6 @@ auto GuiMap::render(Renderer& renderer, Camera& camera) -> void {
 	tex_renderer.getShaderProgram().use();
 
 	float texture_aspect = largeTileAt(0, 0).getAspect();
-	glm::vec2 cam_pos = camera.pos;
 
 	glm::vec2 texture_scale{ texture_aspect, 1 };
 	tex_renderer.setTextureScale(texture_scale);
@@ -34,7 +36,7 @@ auto GuiMap::render(Renderer& renderer, Camera& camera) -> void {
 	for (int x = 0; x < LargeMapTileXCount; x++) {
 		for (int y = 0; y < LargeMapTileYCount; y++) {
 			const glm::vec2 texture_offset = { x * texture_aspect * 2, -y * 2 };
-			tex_renderer.setTexturePosition(cam_pos + texture_offset);
+			tex_renderer.setTexturePosition(camera.pos + texture_offset + map_pos);
 
 			Texture& texture = largeTileAt(x, y);
 			texture.bind();
@@ -49,6 +51,14 @@ auto GuiMap::largeTileAt(int x, int y) -> Texture& {
 
 auto GuiMap::smallTileAt(int x, int y) -> Texture& {
 	return largeTileAt(x, y);
+}
+
+auto GuiMap::getMapWidth() -> float {
+	return LargeMapTileXCount * 2 * largeTileAt(0, 0).getAspect();
+}
+
+auto GuiMap::getMapHeight() -> float {
+	return LargeMapTileYCount * 2; // each tile has a height of 1
 }
 
 

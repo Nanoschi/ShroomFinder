@@ -10,7 +10,14 @@
 Display::Display() : 
 	renderer{ DefaultWinWidth, DefaultWinHeight, WinTitle },
 	camera{ {0, 0}, 1 } {
+
 	_loadData();
+	const glm::vec2 map_size = { map.getMapWidth(), map.getMapHeight() };
+	const glm::vec2 half_map_size = map_size / 2.0f;
+	camera.pos = { 
+		-half_map_size.x,
+		half_map_size.y};
+	camera.zoom = 0.25;
 }
 
 auto Display::drawFrame() -> void {

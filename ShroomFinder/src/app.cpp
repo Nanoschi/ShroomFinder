@@ -50,11 +50,6 @@ auto App::close() -> void {
 }
 
 auto App::_applyInput() -> void {
-	glm::vec2 raster_mouse = input_reader.getMousePos();//glm::vec2(400, 400);//
-	glm::vec2 screen_mouse = display.camera.RasterToScreen(raster_mouse, display.renderer.getWinSizeF());
-	glm::vec2 world_mouse = display.camera.ScreenToWorld(screen_mouse);
-	printf("x: %f     y:%f\n", world_mouse.x, world_mouse.y);
-
 	if (input_reader.getMouseMiddle()) {
 		glm::vec2 delta_mouse = input_reader.getDeltaMousePos();
 		glm::vec2 normal_delta_mouse = (delta_mouse / display.renderer.getWinSizeF() * 2.0f) / display.camera.zoom;
