@@ -50,24 +50,24 @@ auto App::close() -> void {
 }
 
 auto App::_applyInput() -> void {
-	glm::vec2 raster_mouse = input_reader.getMousePos();
+	glm::vec2 raster_mouse = input_reader.getMousePos();//glm::vec2(400, 400);//
 	glm::vec2 screen_mouse = display.camera.RasterToScreen(raster_mouse, display.renderer.getWinSizeF());
-	glm::vec2 world_mouse = screen_mouse - display.camera.getNormalCamPos(display.renderer);
-	printf("x: %f     y:%f\n", display.camera.pos.x, display.camera.pos.y);
+	glm::vec2 world_mouse = display.camera.ScreenToWorld(screen_mouse);
+	printf("x: %f     y:%f\n", world_mouse.x, world_mouse.y);
 
 	if (input_reader.getMouseMiddle()) {
 		glm::vec2 delta_mouse = input_reader.getDeltaMousePos();
 		glm::vec2 normal_delta_mouse = (delta_mouse / display.renderer.getWinSizeF() * 2.0f) / display.camera.zoom;
 		display.camera.move(glm::vec2(normal_delta_mouse.x, -normal_delta_mouse.y));
 	}
-	if (input_reader.getScrollAmount() < 0) {
+	if (input_reader.getScrollAmount() != 0) {
 		glm::vec2 mouse_pos = input_reader.getMousePos();
 		glm::vec2 screen_mouse_pos = display.camera.RasterToScreen(mouse_pos, display.renderer.getWinSizeF());
-		display.zoomOut(screen_mouse_pos);
-	}
-	else if (input_reader.getScrollAmount() > 0) {
-		glm::vec2 mouse_pos = input_reader.getMousePos();
-		glm::vec2 screen_mouse_pos = display.camera.RasterToScreen(mouse_pos, display.renderer.getWinSizeF());
-		display.zoomIn(screen_mouse_pos);
+		if (input_reader.getScrollAmount() < 0) {
+			display.zoomOut(screen_mouse_pos);
+		}
+		else if (input_reader.getScrollAmount() > 0) {
+			display.zoomIn(screen_mouse_pos);
+		}
 	}
 }

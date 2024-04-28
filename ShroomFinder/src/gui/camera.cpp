@@ -22,18 +22,18 @@ auto Camera::getNormalCamPos(Renderer& renderer) const -> glm::vec2 {
 }
 
 auto Camera::WorldToScreen(glm::vec2 world_pos) -> glm::vec2 {
-	return (world_pos / zoom) - pos;
+	return (world_pos + pos) * zoom;
 }
 
 auto Camera::ScreenToWorld(glm::vec2 screen_pos) -> glm::vec2 {
-	return (screen_pos + pos) * zoom;
+	return (screen_pos / zoom) - pos;
 }
 
 auto Camera::RasterToScreen(glm::vec2 raster_pos, glm::vec2 win_size) -> glm::vec2 {
-	const glm::vec2 flipped_raster_pos = glm::vec2(raster_pos.x, -raster_pos.y);
-	const glm::vec2 centered_raster = flipped_raster_pos - (win_size / 2.0f);
-	const glm::vec2 normal_raster = centered_raster / (win_size / 2.0f);
-	return normal_raster;
+	const glm::vec2 half_win_size = win_size / 2.0f;
+	const glm::vec2 centered_raster = raster_pos - half_win_size;
+	const glm::vec2 normal_raster = centered_raster / half_win_size;
+	return glm::vec2(normal_raster.x, -normal_raster.y);
 }
 
 auto Camera::ScreenToRaster(glm::vec2 screen_pos, glm::vec2 win_size) -> glm::vec2 {
