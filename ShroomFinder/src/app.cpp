@@ -27,6 +27,11 @@ auto App::run() -> void {
 
 		input_reader.pollInput();
 		_applyInput();
+		glm::vec2 mouse_pos_raster = input_reader.getMousePos();
+		glm::vec2 mouse_pos_screen = display.camera.RasterToScreen(mouse_pos_raster, display.renderer.getWinSizeF());
+		glm::vec2 mouse_pos_world = display.camera.ScreenToWorld(mouse_pos_screen);
+		glm::vec2 mouse_pos_geo = display.map.worldToGeo(mouse_pos_world);
+		printf("%f   %f\n", mouse_pos_geo.x, mouse_pos_geo.y);
 		display.drawFrame();
 		frame_count++;
 
@@ -65,4 +70,19 @@ auto App::_applyInput() -> void {
 			display.zoomIn(screen_mouse_pos);
 		}
 	}
+	if (input_reader.isKeyDown(SDL_KeyCode::SDLK_LCTRL) && input_reader.getMouseLeft()) {
+		glm::vec2 raster_mouse = input_reader.getMousePos();
+		glm::vec2 screen_mouse = display.camera.RasterToScreen(raster_mouse, display.renderer.getWinSizeF());
+		glm::vec2 world_mouse = display.camera.ScreenToWorld(screen_mouse);
+		glm::vec2 geo_mouse = display.map.worldToGeo(world_mouse);
+		_openCoordinatesWeb(geo_mouse.y, geo_mouse.x);
+	}
+}
+
+auto App::_openCoordinatesWeb(double latitude, double longitude) -> void {
+	const std::string lat_str = std::to_string(latitude);
+	const std::string long_str = std::to_string(longitude);
+	const std::string url_base = "https://maps.google.com/?q=";
+	const std::string url = url_base + lat_str + "," + long_str;
+	SDL_OpenURL(url.c_str());
 }

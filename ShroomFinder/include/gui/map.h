@@ -26,6 +26,8 @@ public:
 
 	auto getMapHeight() -> float;
 
+	auto worldToGeo(glm::vec2 world_pos) -> glm::vec2;
+
 private:
 	auto _loadLargeTiles(const std::string& directory) -> void;
 

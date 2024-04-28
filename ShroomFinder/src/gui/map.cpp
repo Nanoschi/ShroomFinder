@@ -61,6 +61,17 @@ auto GuiMap::getMapHeight() -> float {
 	return LargeMapTileYCount * 2; // each tile has a height of 1
 }
 
+auto GuiMap::worldToGeo(glm::vec2 world_pos) -> glm::vec2 {
+	constexpr double MapMaxLongDiff = MapMaxlongitude - MapMinLongitude;
+	constexpr double MapMaxLatDiff = MapMaxLatitude - MapMinLatitude;
+	constexpr glm::vec2 GeoSize(MapMaxLongDiff, MapMaxLatDiff);
+	constexpr glm::vec2 GeoMin(MapMinLongitude, MapMinLatitude);
+
+	const glm::vec2 flipped_world_pos = glm::vec2(world_pos.x, -world_pos.y);
+	const glm::vec2 rel_pos = flipped_world_pos / glm::vec2{getMapWidth(), getMapHeight()};
+	const glm::vec2 rel_pos_flipped = glm::vec2(rel_pos.x, 1 - rel_pos.y);
+	return rel_pos_flipped * GeoSize + GeoMin;
+}
 
 auto GuiMap::_loadLargeTiles(const std::string& directory) -> void {
 	std::vector<std::thread> threads;

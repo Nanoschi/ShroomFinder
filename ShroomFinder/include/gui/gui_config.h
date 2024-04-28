@@ -14,7 +14,9 @@ constexpr float ZoomSpeed = 1.1f;
 constexpr int LargeMapTileXCount = 4;
 constexpr int LargeMapTileYCount = 4;
 
-constexpr double MapMaxLatitude = 53.6044905;
+
+//55.0687080526247, 8.517408991712886
+constexpr double MapMaxLatitude = 55.0687080526247;
 constexpr double MapMinLatitude = 47.149781116;
 
 constexpr double MapMaxlongitude = 15.051238378;

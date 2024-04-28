@@ -17,4 +17,6 @@ public:
 
 private:
 	auto _applyInput() -> void;
+
+	auto _openCoordinatesWeb(double latitude, double longitude) -> void;
 };
