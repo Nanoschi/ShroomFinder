@@ -70,7 +70,11 @@ auto GuiMap::worldToGeo(glm::vec2 world_pos) -> glm::vec2 {
 	const glm::vec2 flipped_world_pos = glm::vec2(world_pos.x, -world_pos.y);
 	const glm::vec2 rel_pos = flipped_world_pos / glm::vec2{getMapWidth(), getMapHeight()};
 	const glm::vec2 rel_pos_flipped = glm::vec2(rel_pos.x, 1 - rel_pos.y);
-	return rel_pos_flipped * GeoSize + GeoMin;
+	const float adjustment_scale = -4.0f * (rel_pos_flipped.y - 0.5f) * (rel_pos_flipped.y - 0.5f) + 1;
+	const glm::vec2 geo_coords = rel_pos_flipped * GeoSize + GeoMin;
+	const glm::vec2 geo_coords_adjusted = { geo_coords.x, geo_coords.y + adjustment_scale * 0.16f };
+	printf("%f\n", adjustment_scale);
+	return geo_coords_adjusted;
 }
 
 auto GuiMap::_loadLargeTiles(const std::string& directory) -> void {

@@ -31,7 +31,7 @@ auto App::run() -> void {
 		glm::vec2 mouse_pos_screen = display.camera.RasterToScreen(mouse_pos_raster, display.renderer.getWinSizeF());
 		glm::vec2 mouse_pos_world = display.camera.ScreenToWorld(mouse_pos_screen);
 		glm::vec2 mouse_pos_geo = display.map.worldToGeo(mouse_pos_world);
-		printf("%f   %f\n", mouse_pos_geo.x, mouse_pos_geo.y);
+		//printf("%f   %f\n", mouse_pos_geo.x, mouse_pos_geo.y);
 		display.drawFrame();
 		frame_count++;
 
