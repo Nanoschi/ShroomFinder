@@ -127,12 +127,57 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="resources\germany.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="resources\shaders\texture_shader\texture.vert" />
     <None Include="resources\shaders\texture_shader\texture.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\map_tiles_large\germany_0_0.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_0_1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_0_2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_0_3.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_1_0.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_1_1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_1_2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_1_3.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_2_0.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_2_1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_2_2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_2_3.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_3_0.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_3_1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_3_2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\map_tiles_large\germany_3_3.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

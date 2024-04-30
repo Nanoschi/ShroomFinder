@@ -175,11 +175,26 @@
     <ClInclude Include="include\paths.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="resources\germany.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="resources\shaders\texture_shader\texture.frag" />
     <None Include="resources\shaders\texture_shader\texture.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\map_tiles_large\germany_0_0.jpg" />
+    <Image Include="resources\map_tiles_large\germany_0_1.jpg" />
+    <Image Include="resources\map_tiles_large\germany_0_2.jpg" />
+    <Image Include="resources\map_tiles_large\germany_0_3.jpg" />
+    <Image Include="resources\map_tiles_large\germany_1_0.jpg" />
+    <Image Include="resources\map_tiles_large\germany_1_1.jpg" />
+    <Image Include="resources\map_tiles_large\germany_1_2.jpg" />
+    <Image Include="resources\map_tiles_large\germany_1_3.jpg" />
+    <Image Include="resources\map_tiles_large\germany_2_0.jpg" />
+    <Image Include="resources\map_tiles_large\germany_2_1.jpg" />
+    <Image Include="resources\map_tiles_large\germany_2_2.jpg" />
+    <Image Include="resources\map_tiles_large\germany_2_3.jpg" />
+    <Image Include="resources\map_tiles_large\germany_3_0.jpg" />
+    <Image Include="resources\map_tiles_large\germany_3_1.jpg" />
+    <Image Include="resources\map_tiles_large\germany_3_2.jpg" />
+    <Image Include="resources\map_tiles_large\germany_3_3.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
