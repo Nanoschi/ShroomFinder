@@ -28,6 +28,8 @@ public:
 
 	auto worldToGeo(glm::vec2 world_pos) -> glm::vec2;
 
+	auto geoToWorld(glm::vec2 geo_pos) -> glm::vec2;
+
 private:
 	auto _loadLargeTiles(const std::string& directory) -> void;
 

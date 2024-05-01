@@ -62,19 +62,25 @@ auto GuiMap::getMapHeight() -> float {
 }
 
 auto GuiMap::worldToGeo(glm::vec2 world_pos) -> glm::vec2 {
-	constexpr double MapMaxLongDiff = MapMaxlongitude - MapMinLongitude;
-	constexpr double MapMaxLatDiff = MapMaxLatitude - MapMinLatitude;
-	constexpr glm::vec2 GeoSize(MapMaxLongDiff, MapMaxLatDiff);
-	constexpr glm::vec2 GeoMin(MapMinLongitude, MapMinLatitude);
-
 	const glm::vec2 flipped_world_pos = glm::vec2(world_pos.x, -world_pos.y);
-	const glm::vec2 rel_pos = flipped_world_pos / glm::vec2{getMapWidth(), getMapHeight()};
-	const glm::vec2 rel_pos_flipped = glm::vec2(rel_pos.x, 1 - rel_pos.y);
-	const float adjustment_scale = -4.0f * (rel_pos_flipped.y - 0.5f) * (rel_pos_flipped.y - 0.5f) + 1;
-	const glm::vec2 geo_coords = rel_pos_flipped * GeoSize + GeoMin;
-	const glm::vec2 geo_coords_adjusted = { geo_coords.x, geo_coords.y + adjustment_scale * 0.16f };
-	printf("%f\n", adjustment_scale);
-	return geo_coords_adjusted;
+	const glm::vec2 normal_pos = flipped_world_pos / glm::vec2{getMapWidth(), getMapHeight()};
+	const glm::vec2 flipped_normal_pos = glm::vec2(normal_pos.x, 1 - normal_pos.y);
+	const float adjustment_scale = -4.0f * (flipped_normal_pos.y - 0.5f) * (flipped_normal_pos.y - 0.5f) + 1;
+	const glm::vec2 geo_pos = flipped_normal_pos * GeoSize + GeoMin;
+	const glm::vec2 adjusted_geo_pos = { geo_pos.x, geo_pos.y + adjustment_scale * MapProjectionAdjustmentFactor };
+	
+	return adjusted_geo_pos;
+}
+
+auto GuiMap::geoToWorld(glm::vec2 geo_pos) -> glm::vec2 {
+	const glm::vec2 relative_geo_pos = geo_pos - GeoMin;
+	const glm::vec2 normal_pos = relative_geo_pos / GeoSize;
+	const float adjustment_scale = -4.0f * (normal_pos.y - 0.5f) * (normal_pos.y - 0.5f) + 1;
+	const glm::vec2 flipped_normal_pos{ normal_pos.x, -(1 - normal_pos.y) };
+	const glm::vec2 world_pos = flipped_normal_pos * glm::vec2(getMapWidth(), getMapHeight());
+	const glm::vec2 adjusted_world_pos{ world_pos.x, world_pos.y - adjustment_scale * MapProjectionAdjustmentFactor };
+
+	return adjusted_world_pos;
 }
 
 auto GuiMap::_loadLargeTiles(const std::string& directory) -> void {
