@@ -43,5 +43,5 @@ auto Display::zoomOut(glm::vec2 target) -> void {
 
 auto Display::_loadData() -> void {
 	map.loadData();
-	spottings.loadData();
+	spottings.loadData(map);
 }

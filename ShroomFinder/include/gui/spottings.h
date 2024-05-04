@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include <fstream>
 #include <map>
@@ -17,7 +18,7 @@ public:
 
 	auto render() -> void;
 
-	auto loadData() -> void;
+	auto loadData(GuiMap& map) -> void;
 
 private:
 	auto _loadCoordinates(std::ifstream& file, GuiMap& map, unsigned count) -> void;
