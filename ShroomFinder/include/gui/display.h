@@ -5,6 +5,7 @@
 #include "camera.h"
 #include "renderer.h"
 #include "gui/map.h"
+#include "gui/spottings.h"
 
 class Display {
 public:
@@ -13,6 +14,7 @@ public:
 	Camera camera;
 	
 	GuiMap map;
+	GuiSpottings spottings;
 
 	Display();
 

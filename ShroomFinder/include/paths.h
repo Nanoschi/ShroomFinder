@@ -6,4 +6,6 @@ namespace paths {
 	const std::string TextureFragmentShader = "resources/shaders/texture_shader/texture.frag";
 
 	const std::string LargeTileDir = "resources/map_tiles_large";
+
+	const std::string SpottingsFile = "resources/spottings.spot";
 }

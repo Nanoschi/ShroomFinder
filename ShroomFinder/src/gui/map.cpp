@@ -65,7 +65,7 @@ auto GuiMap::worldToGeo(glm::vec2 world_pos) -> glm::vec2 {
 	const glm::vec2 flipped_world_pos = glm::vec2(world_pos.x, -world_pos.y);
 	const glm::vec2 normal_pos = flipped_world_pos / glm::vec2{getMapWidth(), getMapHeight()};
 	const glm::vec2 flipped_normal_pos = glm::vec2(normal_pos.x, 1 - normal_pos.y);
-	const float adjustment_scale = -4.0f * (flipped_normal_pos.y - 0.5f) * (flipped_normal_pos.y - 0.5f) + 1;
+	const float adjustment_scale = -4.0f * (flipped_normal_pos.y - 0.5f) * (flipped_normal_pos.y - 0.5f) + 1.0f;
 	const glm::vec2 geo_pos = flipped_normal_pos * GeoSize + GeoMin;
 	const glm::vec2 adjusted_geo_pos = { geo_pos.x, geo_pos.y + adjustment_scale * MapProjectionAdjustmentFactor };
 	
@@ -75,8 +75,8 @@ auto GuiMap::worldToGeo(glm::vec2 world_pos) -> glm::vec2 {
 auto GuiMap::geoToWorld(glm::vec2 geo_pos) -> glm::vec2 {
 	const glm::vec2 relative_geo_pos = geo_pos - GeoMin;
 	const glm::vec2 normal_pos = relative_geo_pos / GeoSize;
-	const float adjustment_scale = -4.0f * (normal_pos.y - 0.5f) * (normal_pos.y - 0.5f) + 1;
-	const glm::vec2 flipped_normal_pos{ normal_pos.x, -(1 - normal_pos.y) };
+	const float adjustment_scale = -4.0f * (normal_pos.y - 0.5f) * (normal_pos.y - 0.5f) + 1.0f;
+	const glm::vec2 flipped_normal_pos{ normal_pos.x, -(1.0f - normal_pos.y) };
 	const glm::vec2 world_pos = flipped_normal_pos * glm::vec2(getMapWidth(), getMapHeight());
 	const glm::vec2 adjusted_world_pos{ world_pos.x, world_pos.y - adjustment_scale * MapProjectionAdjustmentFactor };
 

@@ -27,3 +27,5 @@ constexpr glm::vec2 GeoSize(MapMaxLongDiff, MapMaxLatDiff);
 constexpr glm::vec2 GeoMin(MapMinLongitude, MapMinLatitude);
 
 constexpr float MapProjectionAdjustmentFactor = 0.16f;
+
+constexpr int SpottingCategoryCount = 6;

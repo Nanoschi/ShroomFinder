@@ -142,6 +142,7 @@
     <ClCompile Include="src\gui\display.cpp" />
     <ClCompile Include="src\gui\map.cpp" />
     <ClCompile Include="src\gui\renderer.cpp" />
+    <ClCompile Include="src\gui\spottings.cpp" />
     <ClCompile Include="src\input_reader.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\opengl\debug.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="include\app.h" />
     <ClInclude Include="include\gui\image.h" />
     <ClInclude Include="include\gui\map.h" />
+    <ClInclude Include="include\gui\spottings.h" />
     <ClInclude Include="include\gui\texture_renderer.h" />
     <ClInclude Include="include\load_file.h" />
     <ClInclude Include="include\error.h" />
@@ -177,6 +179,7 @@
   <ItemGroup>
     <None Include="resources\shaders\texture_shader\texture.frag" />
     <None Include="resources\shaders\texture_shader\texture.vert" />
+    <None Include="resources\spottings.spot" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\map_tiles_large\germany_0_0.jpg" />

@@ -66,6 +66,9 @@
     <ClCompile Include="src\gui\camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui\spottings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\app.h">
@@ -125,10 +128,14 @@
     <ClInclude Include="include\gui\texture_renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gui\spottings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\texture_shader\texture.vert" />
     <None Include="resources\shaders\texture_shader\texture.frag" />
+    <None Include="resources\spottings.spot" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\map_tiles_large\germany_0_0.jpg">

@@ -24,6 +24,7 @@ auto Display::drawFrame() -> void {
 	renderer.clearScreen(0.4f, 0.1f, 0.2f);
 	
 	map.render(renderer, camera);
+	spottings.render();
 
 	renderer.presentScreen();
 }
@@ -42,4 +43,5 @@ auto Display::zoomOut(glm::vec2 target) -> void {
 
 auto Display::_loadData() -> void {
 	map.loadData();
+	spottings.loadData();
 }

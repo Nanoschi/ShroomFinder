@@ -75,7 +75,9 @@ auto App::_applyInput() -> void {
 		glm::vec2 screen_mouse = display.camera.RasterToScreen(raster_mouse, display.renderer.getWinSizeF());
 		glm::vec2 world_mouse = display.camera.ScreenToWorld(screen_mouse);
 		glm::vec2 geo_mouse = display.map.worldToGeo(world_mouse);
+		glm::vec2 geo2_mouse = display.map.worldToGeo(display.map.geoToWorld(geo_mouse));
 		_openCoordinatesWeb(geo_mouse.y, geo_mouse.x);
+		_openCoordinatesWeb(geo2_mouse.y, geo2_mouse.x);
 	}
 }
 
